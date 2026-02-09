@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Be Mine 💖</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive;
+      background: linear-gradient(to bottom, #ffccd5, #ffe5ec);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      color: #d63384;
+      font-size: 2rem;
+      margin-bottom: 50px;
+    }
+
+    button {
+  padding: 12px 22px;
+  font-size: 18px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+
+  position: absolute;
+
+  display: inline-block;   /* prevents stretching */
+  white-space: nowrap;     /* keeps width fixed */
+  height: fit-content;     /* 🔥 key line */
+}
+    #yes {
+      background-color: #ff4d6d;
+      color: white;
+      bottom: 120px;
+      left: 40%;
+    }
+
+    #no {
+      background-color: #6c757d;
+      color: white;
+      bottom: 120px;
+      left: 55%;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 1.5rem;
+      color: #c9184a;
+    }
+
+    img {
+      width: 200px;
+      margin-top: 15px;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>VARMA will u be my forever FRIEND? 🫂</h1>
+
+  <button id="yes">YES ☺️🤗</button>
+  <button id="no">NO 🪓🔪</button>
+
+  <div id="message"></div>
+  <img id="sticker" src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif">
+
+  <script>
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+    const message = document.getElementById("message");
+    const sticker = document.getElementById("sticker");
+
+    function moveNo() {
+      const padding = 20;
+
+      const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+      const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    }
+
+    // Desktop
+    noBtn.addEventListener("mouseover", moveNo);
+
+    // Mobile
+    noBtn.addEventListener("touchstart", function (e) {
+      e.preventDefault();
+      moveNo();
+    });
+
+    yesBtn.addEventListener("click", function () {
+      message.innerHTML = "Yayyy! 💖 I knew it 🥰<br>Forever it is 💫";
+      sticker.style.display = "block";
+      yesBtn.style.display = "none";
+      noBtn.style.display = "none";
+    });
+  </script>
+
+</body>
+</html>
